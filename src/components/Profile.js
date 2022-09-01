@@ -1,21 +1,20 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import React from 'react'
-import JSONPretty from 'react-json-pretty'
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import JSONPretty from "react-json-pretty";
 
 function Profile() {
-    const {user, isAuthenticated}=useAuth0()
+  const { user, isAuthenticated } = useAuth0();
   return (
-      isAuthenticated && (
-    <div>
+    isAuthenticated && (
+      <div>
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
         <JSONPretty data={user} />
         {JSON.stringify(user, null, 2)}
-    </div>
-      )
-    
-  )
+      </div>
+    )
+  );
 }
 
-export default Profile
+export default Profile;
